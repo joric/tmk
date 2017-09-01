@@ -330,6 +330,7 @@ bool command_extra(uint8_t code)
             xprintf("%02u:",   t/3600);
             xprintf("%02u:",   t%3600/60);
             xprintf("%02u\n",  t%60);
+            rn42_printf("BAT: %umV\t", b);
             return true;
         case KC_U:
             if (config_mode) return false;

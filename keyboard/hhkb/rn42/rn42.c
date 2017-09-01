@@ -263,3 +263,16 @@ static void config_send_keyboard(report_keyboard_t *report) {}
 static void config_send_mouse(report_mouse_t *report) {}
 static void config_send_system(uint16_t data) {}
 static void config_send_consumer(uint16_t data) {}
+
+void rn42_printf(const char * format, ...) {
+    int i;
+    char buf[16];
+    va_list args;
+    va_start(args, format);
+    vsprintf(buf, format, args);
+    va_end(args);
+    for (i=0; i<strlen(buf); i++) {
+        serial_send(buf[i]);
+    }
+}
+
