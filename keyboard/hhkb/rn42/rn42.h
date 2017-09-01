@@ -20,6 +20,7 @@ void rn42_cts_hi(void);
 void rn42_cts_lo(void);
 bool rn42_linked(void);
 void rn42_set_leds(uint8_t l);
+void rn42_printf(const char * format, ...);
 
 const char *rn42_send_command(const char *cmd);
 void rn42_send_str(const char *str);
