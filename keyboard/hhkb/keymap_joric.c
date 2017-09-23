@@ -34,17 +34,17 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      * |-----------------------------------------------------------|
      * |Caps |Mb1|McU|Mb2|MwU|   |   |   |Psc|Slk|Pus|Up |   |   Bs|
      * |-----------------------------------------------------------|
-     * |      |McL|McD|McR|MwD|   |  *|  /|Hom|PgU|Lef|Rig|Enter   |
+     * |      |McL|McD|McR|Mb3|   |  *|  /|Hom|PgU|Lef|Rig|Enter   |
      * |-----------------------------------------------------------|
-     * |        |VoD|VoU|Mut|Mb3|   |  +|  -|End|PgD|Dow|      |   |
+     * |        |VoD|VoU|Mut|MwD|   |  +|  -|End|PgD|Dow|      |   |
      * `-----------------------------------------------------------'
      *       |   |     |                       |     |   |
      *       `-------------------------------------------'
      */ 
     KEYMAP(ESC, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, INS, DEL,   \
            CAPS,BTN1,MS_U,BTN2,WH_U,TRNS,TRNS,TRNS,PSCR,SLCK,PAUS,UP,  TRNS,BSPC,       \
-           TRNS,MS_L,MS_D,MS_R,WH_D,TRNS,PAST,PSLS,HOME,PGUP,LEFT,RGHT,PENT,            \
-           TRNS,VOLD,VOLU,MUTE,BTN3,TRNS,PPLS,PMNS,END, PGDN,DOWN,TRNS,TRNS,            \
+           TRNS,MS_L,MS_D,MS_R,BTN3,TRNS,PAST,PSLS,HOME,PGUP,LEFT,RGHT,PENT,            \
+           TRNS,VOLD,VOLU,MUTE,WH_D,TRNS,PPLS,PMNS,END, PGDN,DOWN,TRNS,TRNS,            \
                 TRNS,TRNS,          TRNS,                TRNS,TRNS)
 };
 
