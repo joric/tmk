@@ -1,11 +1,14 @@
 /*
  * Joric
- * HHKB layout with swapped Alt/Opt, no PWR(Fn+Esc) and mouse layer at semicolon+ijkl
+ * HHKB layout with swapped Alt/Opt, no PWR(Fn+Esc) and mouse layer at fn+wasd
  */
 #include "keymap_common.h"
 
-
-const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+#ifdef KEYMAP_SECTION_ENABLE
+const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] __attribute__ ((section (".keymap.keymaps"))) = {
+#else
+const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
+#endif
     /* Layer 0: Default Layer
      * ,-----------------------------------------------------------.
      * |Esc|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|  \|  `|
@@ -29,11 +32,11 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ,-----------------------------------------------------------.
      * |Esc| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|Ins|Del|
      * |-----------------------------------------------------------|
-     * |Caps |   |   |   |   |   |   |   |Psc|Slk|Pus|Up |   |   Bs|
+     * |Caps |Mb1|McU|Mb2|MwU|   |   |   |Psc|Slk|Pus|Up |   |   Bs|
      * |-----------------------------------------------------------|
-     * |      |VoD|VoU|Mut|   |   |  *|  /|Hom|PgU|Lef|Rig|Enter   |
+     * |      |McL|McD|McR|MwD|   |  *|  /|Hom|PgU|Lef|Rig|Enter   |
      * |-----------------------------------------------------------|
-     * |        |   |   |   |   |   |  +|  -|End|PgD|Dow|      |   |
+     * |        |VoD|VoU|Mut|Mb3|   |  +|  -|End|PgD|Dow|      |   |
      * `-----------------------------------------------------------'
      *       |   |     |                       |     |   |
      *       `-------------------------------------------'
@@ -41,13 +44,17 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(ESC, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, INS, DEL,   \
            CAPS,BTN1,MS_U,BTN2,WH_U,TRNS,TRNS,TRNS,PSCR,SLCK,PAUS,UP,  TRNS,BSPC,       \
            TRNS,MS_L,MS_D,MS_R,WH_D,TRNS,PAST,PSLS,HOME,PGUP,LEFT,RGHT,PENT,            \
-           TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PPLS,PMNS,END, PGDN,DOWN,TRNS,TRNS,            \
+           TRNS,VOLD,VOLU,MUTE,BTN3,TRNS,PPLS,PMNS,END, PGDN,DOWN,TRNS,TRNS,            \
                 TRNS,TRNS,          TRNS,                TRNS,TRNS)
 };
 
 /*
  * Fn action definition
  */
-const uint16_t PROGMEM fn_actions[] = {
-    [0] = ACTION_LAYER_MOMENTARY(1)
+#ifdef KEYMAP_SECTION_ENABLE
+const action_t fn_actions[] __attribute__ ((section (".keymap.fn_actions"))) = {
+#else
+const action_t fn_actions[] PROGMEM = {
+#endif
+    [0] = ACTION_LAYER_MOMENTARY(1),
 };
