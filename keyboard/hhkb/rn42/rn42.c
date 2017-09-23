@@ -264,6 +264,9 @@ static void config_send_mouse(report_mouse_t *report) {}
 static void config_send_system(uint16_t data) {}
 static void config_send_consumer(uint16_t data) {}
 
+#include <stdio.h>
+#include <string.h>
+#include <stdarg.h>
 void rn42_printf(const char * format, ...) {
     int i;
     char buf[16];
@@ -271,7 +274,7 @@ void rn42_printf(const char * format, ...) {
     va_start(args, format);
     vsprintf(buf, format, args);
     va_end(args);
-    for (i=0; i<strlen(buf); i++) {
+    for (i=0; i<strlen((const char*)buf); i++) {
         serial_send(buf[i]);
     }
 }
